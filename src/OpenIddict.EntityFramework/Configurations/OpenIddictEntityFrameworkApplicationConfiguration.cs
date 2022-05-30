@@ -43,7 +43,6 @@ namespace OpenIddict.EntityFramework
                 }));
 
             Property(application => application.ConcurrencyToken)
-                .HasMaxLength(50)
                 .IsConcurrencyToken();
 
             Property(application => application.ConsentType)

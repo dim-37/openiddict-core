@@ -170,7 +170,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the client identifier associated with the application.
         /// </returns>
-        ValueTask<string?> GetClientIdAsync(object application, CancellationToken cancellationToken = default);
+        ValueTask<string> GetClientIdAsync(object application, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves the client type associated with an application.
@@ -181,7 +181,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the client type of the application (by default, "public").
         /// </returns>
-        ValueTask<string?> GetClientTypeAsync(object application, CancellationToken cancellationToken = default);
+        ValueTask<string> GetClientTypeAsync(object application, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves the consent type associated with an application.

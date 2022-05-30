@@ -61,7 +61,7 @@ namespace OpenIddict.Validation
         /// <summary>
         /// Gets or sets the client identifier sent to the authorization server when using remote validation.
         /// </summary>
-        public string? ClientId { get; set; }
+        public string ClientId { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the client secret sent to the authorization server when using remote validation.

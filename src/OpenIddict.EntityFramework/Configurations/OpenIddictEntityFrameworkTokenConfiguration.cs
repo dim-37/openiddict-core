@@ -36,7 +36,6 @@ namespace OpenIddict.EntityFramework
             HasKey(token => token.Id);
 
             Property(token => token.ConcurrencyToken)
-                .HasMaxLength(50)
                 .IsConcurrencyToken();
 
             // Warning: the index on the ReferenceId property MUST NOT be declared as

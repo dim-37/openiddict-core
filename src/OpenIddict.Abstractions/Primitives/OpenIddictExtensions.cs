@@ -1621,7 +1621,7 @@ namespace OpenIddict.Abstractions
         /// <param name="principal">The claims principal.</param>
         /// <param name="type">The token type to store.</param>
         /// <returns>The claims principal.</returns>
-        public static ClaimsPrincipal SetTokenType(this ClaimsPrincipal principal, string? type)
+        public static ClaimsPrincipal SetTokenType(this ClaimsPrincipal principal, string type)
             => principal.SetClaim(Claims.Private.TokenType, type);
 
         private static ImmutableArray<string> GetValues(string? source, char[] separators)

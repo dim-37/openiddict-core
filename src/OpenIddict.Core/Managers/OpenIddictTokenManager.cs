@@ -806,7 +806,7 @@ namespace OpenIddict.Core
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the status associated with the specified token.
         /// </returns>
-        public virtual ValueTask<string?> GetStatusAsync(TToken token, CancellationToken cancellationToken = default)
+        public virtual ValueTask<string> GetStatusAsync(TToken token, CancellationToken cancellationToken = default)
         {
             if (token is null)
             {
@@ -844,7 +844,7 @@ namespace OpenIddict.Core
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the token type associated with the specified token.
         /// </returns>
-        public virtual ValueTask<string?> GetTypeAsync(TToken token, CancellationToken cancellationToken = default)
+        public virtual ValueTask<string> GetTypeAsync(TToken token, CancellationToken cancellationToken = default)
         {
             if (token is null)
             {
@@ -1411,7 +1411,7 @@ namespace OpenIddict.Core
             => GetReferenceIdAsync((TToken) token, cancellationToken);
 
         /// <inheritdoc/>
-        ValueTask<string?> IOpenIddictTokenManager.GetStatusAsync(object token, CancellationToken cancellationToken)
+        ValueTask<string> IOpenIddictTokenManager.GetStatusAsync(object token, CancellationToken cancellationToken)
             => GetStatusAsync((TToken) token, cancellationToken);
 
         /// <inheritdoc/>
@@ -1419,7 +1419,7 @@ namespace OpenIddict.Core
             => GetSubjectAsync((TToken) token, cancellationToken);
 
         /// <inheritdoc/>
-        ValueTask<string?> IOpenIddictTokenManager.GetTypeAsync(object token, CancellationToken cancellationToken)
+        ValueTask<string> IOpenIddictTokenManager.GetTypeAsync(object token, CancellationToken cancellationToken)
             => GetTypeAsync((TToken) token, cancellationToken);
 
         /// <inheritdoc/>

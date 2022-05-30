@@ -432,14 +432,14 @@ namespace OpenIddict.MongoDb
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetStatusAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetStatusAsync(TAuthorization authorization, CancellationToken cancellationToken)
         {
             if (authorization is null)
             {
                 throw new ArgumentNullException(nameof(authorization));
             }
 
-            return new ValueTask<string?>(authorization.Status);
+            return new ValueTask<string>(authorization.Status);
         }
 
         /// <inheritdoc/>
@@ -454,14 +454,14 @@ namespace OpenIddict.MongoDb
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetTypeAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetTypeAsync(TAuthorization authorization, CancellationToken cancellationToken)
         {
             if (authorization is null)
             {
                 throw new ArgumentNullException(nameof(authorization));
             }
 
-            return new ValueTask<string?>(authorization.Type);
+            return new ValueTask<string>(authorization.Type);
         }
 
         /// <inheritdoc/>
@@ -675,7 +675,7 @@ namespace OpenIddict.MongoDb
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask SetStatusAsync(TAuthorization authorization, string? status, CancellationToken cancellationToken)
+        public virtual ValueTask SetStatusAsync(TAuthorization authorization, string status, CancellationToken cancellationToken)
         {
             if (authorization is null)
             {
@@ -701,7 +701,7 @@ namespace OpenIddict.MongoDb
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask SetTypeAsync(TAuthorization authorization, string? type, CancellationToken cancellationToken)
+        public virtual ValueTask SetTypeAsync(TAuthorization authorization, string type, CancellationToken cancellationToken)
         {
             if (authorization is null)
             {
@@ -724,7 +724,7 @@ namespace OpenIddict.MongoDb
             // Generate a new concurrency token and attach it
             // to the authorization before persisting the changes.
             var timestamp = authorization.ConcurrencyToken;
-            authorization.ConcurrencyToken = Guid.NewGuid().ToString();
+            authorization.ConcurrencyToken = Guid.NewGuid();
 
             var database = await Context.GetDatabaseAsync(cancellationToken);
             var collection = database.GetCollection<TAuthorization>(Options.CurrentValue.AuthorizationsCollectionName);

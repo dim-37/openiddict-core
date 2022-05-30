@@ -32,7 +32,6 @@ namespace OpenIddict.EntityFramework
             HasKey(scope => scope.Id);
 
             Property(scope => scope.ConcurrencyToken)
-                .HasMaxLength(50)
                 .IsConcurrencyToken();
 
             Property(scope => scope.Name)

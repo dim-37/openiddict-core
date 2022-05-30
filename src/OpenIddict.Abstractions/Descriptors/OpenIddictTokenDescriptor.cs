@@ -61,7 +61,7 @@ namespace OpenIddict.Abstractions
         /// <summary>
         /// Gets or sets the status associated with the token.
         /// </summary>
-        public string? Status { get; set; }
+        public string Status { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the subject associated with the token.
@@ -71,6 +71,6 @@ namespace OpenIddict.Abstractions
         /// <summary>
         /// Gets or sets the token type.
         /// </summary>
-        public string? Type { get; set; }
+        public string Type { get; set; } = default!;
     }
 }

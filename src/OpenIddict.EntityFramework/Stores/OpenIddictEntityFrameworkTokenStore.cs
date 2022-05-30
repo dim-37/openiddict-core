@@ -498,14 +498,14 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetStatusAsync(TToken token, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetStatusAsync(TToken token, CancellationToken cancellationToken)
         {
             if (token is null)
             {
                 throw new ArgumentNullException(nameof(token));
             }
 
-            return new ValueTask<string?>(token.Status);
+            return new ValueTask<string>(token.Status);
         }
 
         /// <inheritdoc/>
@@ -520,14 +520,14 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetTypeAsync(TToken token, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetTypeAsync(TToken token, CancellationToken cancellationToken)
         {
             if (token is null)
             {
                 throw new ArgumentNullException(nameof(token));
             }
 
-            return new ValueTask<string?>(token.Type);
+            return new ValueTask<string>(token.Type);
         }
 
         /// <inheritdoc/>
@@ -838,7 +838,7 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask SetStatusAsync(TToken token, string? status, CancellationToken cancellationToken)
+        public virtual ValueTask SetStatusAsync(TToken token, string status, CancellationToken cancellationToken)
         {
             if (token is null)
             {
@@ -864,7 +864,7 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask SetTypeAsync(TToken token, string? type, CancellationToken cancellationToken)
+        public virtual ValueTask SetTypeAsync(TToken token, string type, CancellationToken cancellationToken)
         {
             if (token is null)
             {
@@ -888,7 +888,7 @@ namespace OpenIddict.EntityFramework
 
             // Generate a new concurrency token and attach it
             // to the token before persisting the changes.
-            token.ConcurrencyToken = Guid.NewGuid().ToString();
+            token.ConcurrencyToken = Guid.NewGuid();
 
             Context.Entry(token).State = EntityState.Modified;
 

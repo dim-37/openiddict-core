@@ -324,14 +324,14 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetClientIdAsync(TApplication application, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetClientIdAsync(TApplication application, CancellationToken cancellationToken)
         {
             if (application is null)
             {
                 throw new ArgumentNullException(nameof(application));
             }
 
-            return new ValueTask<string?>(application.ClientId);
+            return new ValueTask<string>(application.ClientId);
         }
 
         /// <inheritdoc/>
@@ -346,14 +346,14 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetClientTypeAsync(TApplication application, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetClientTypeAsync(TApplication application, CancellationToken cancellationToken)
         {
             if (application is null)
             {
                 throw new ArgumentNullException(nameof(application));
             }
 
-            return new ValueTask<string?>(application.Type);
+            return new ValueTask<string>(application.Type);
         }
 
         /// <inheritdoc/>
@@ -677,7 +677,7 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask SetClientIdAsync(TApplication application, string? identifier, CancellationToken cancellationToken)
+        public virtual ValueTask SetClientIdAsync(TApplication application, string identifier, CancellationToken cancellationToken)
         {
             if (application is null)
             {
@@ -703,7 +703,7 @@ namespace OpenIddict.EntityFramework
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask SetClientTypeAsync(TApplication application, string? type, CancellationToken cancellationToken)
+        public virtual ValueTask SetClientTypeAsync(TApplication application, string type, CancellationToken cancellationToken)
         {
             if (application is null)
             {
@@ -981,7 +981,7 @@ namespace OpenIddict.EntityFramework
 
             // Generate a new concurrency token and attach it
             // to the application before persisting the changes.
-            application.ConcurrencyToken = Guid.NewGuid().ToString();
+            application.ConcurrencyToken = Guid.NewGuid();
 
             Context.Entry(application).State = EntityState.Modified;
 

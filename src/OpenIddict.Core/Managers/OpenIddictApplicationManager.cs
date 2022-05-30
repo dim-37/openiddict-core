@@ -474,7 +474,7 @@ namespace OpenIddict.Core
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the client identifier associated with the application.
         /// </returns>
-        public virtual ValueTask<string?> GetClientIdAsync(
+        public virtual ValueTask<string> GetClientIdAsync(
             TApplication application, CancellationToken cancellationToken = default)
         {
             if (application is null)
@@ -494,7 +494,7 @@ namespace OpenIddict.Core
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the client type of the application (by default, "public").
         /// </returns>
-        public virtual ValueTask<string?> GetClientTypeAsync(
+        public virtual ValueTask<string> GetClientTypeAsync(
             TApplication application, CancellationToken cancellationToken = default)
         {
             if (application is null)
@@ -1570,11 +1570,11 @@ namespace OpenIddict.Core
             => GetAsync(query, state, cancellationToken);
 
         /// <inheritdoc/>
-        ValueTask<string?> IOpenIddictApplicationManager.GetClientIdAsync(object application, CancellationToken cancellationToken)
+        ValueTask<string> IOpenIddictApplicationManager.GetClientIdAsync(object application, CancellationToken cancellationToken)
             => GetClientIdAsync((TApplication) application, cancellationToken);
 
         /// <inheritdoc/>
-        ValueTask<string?> IOpenIddictApplicationManager.GetClientTypeAsync(object application, CancellationToken cancellationToken)
+        ValueTask<string> IOpenIddictApplicationManager.GetClientTypeAsync(object application, CancellationToken cancellationToken)
             => GetClientTypeAsync((TApplication) application, cancellationToken);
 
         /// <inheritdoc/>

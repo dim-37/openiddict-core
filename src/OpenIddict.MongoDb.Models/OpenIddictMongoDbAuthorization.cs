@@ -29,7 +29,7 @@ namespace OpenIddict.MongoDb.Models
         /// Gets or sets the concurrency token.
         /// </summary>
         [BsonElement("concurrency_token"), BsonIgnoreIfNull]
-        public virtual string? ConcurrencyToken { get; set; } = Guid.NewGuid().ToString();
+        public virtual Guid ConcurrencyToken { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Gets or sets the UTC creation date of the current authorization.
@@ -58,7 +58,7 @@ namespace OpenIddict.MongoDb.Models
         /// Gets or sets the status of the current authorization.
         /// </summary>
         [BsonElement("status"), BsonIgnoreIfNull]
-        public virtual string? Status { get; set; }
+        public virtual string Status { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the subject associated with the current authorization.
@@ -70,6 +70,6 @@ namespace OpenIddict.MongoDb.Models
         /// Gets or sets the type of the current authorization.
         /// </summary>
         [BsonElement("type"), BsonIgnoreIfNull]
-        public virtual string? Type { get; set; }
+        public virtual string Type { get; set; } = default!;
     }
 }

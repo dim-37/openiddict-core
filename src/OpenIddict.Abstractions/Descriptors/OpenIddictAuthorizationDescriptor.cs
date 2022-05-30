@@ -39,7 +39,7 @@ namespace OpenIddict.Abstractions
         /// <summary>
         /// Gets or sets the status associated with the authorization.
         /// </summary>
-        public string? Status { get; set; }
+        public string Status { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the subject associated with the authorization.
@@ -49,6 +49,6 @@ namespace OpenIddict.Abstractions
         /// <summary>
         /// Gets or sets the type of the authorization.
         /// </summary>
-        public string? Type { get; set; }
+        public string Type { get; set; } = default!;
     }
 }

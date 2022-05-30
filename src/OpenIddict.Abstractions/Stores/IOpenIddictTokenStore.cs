@@ -266,7 +266,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the status associated with the specified token.
         /// </returns>
-        ValueTask<string?> GetStatusAsync(TToken token, CancellationToken cancellationToken);
+        ValueTask<string> GetStatusAsync(TToken token, CancellationToken cancellationToken);
 
         /// <summary>
         /// Retrieves the subject associated with a token.
@@ -288,7 +288,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the token type associated with the specified token.
         /// </returns>
-        ValueTask<string?> GetTypeAsync(TToken token, CancellationToken cancellationToken);
+        ValueTask<string> GetTypeAsync(TToken token, CancellationToken cancellationToken);
 
         /// <summary>
         /// Instantiates a new token.
@@ -413,7 +413,7 @@ namespace OpenIddict.Abstractions
         /// <param name="status">The status associated with the authorization.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> that can be used to abort the operation.</param>
         /// <returns>A <see cref="ValueTask"/> that can be used to monitor the asynchronous operation.</returns>
-        ValueTask SetStatusAsync(TToken token, string? status, CancellationToken cancellationToken);
+        ValueTask SetStatusAsync(TToken token, string status, CancellationToken cancellationToken);
 
         /// <summary>
         /// Sets the subject associated with a token.
@@ -431,7 +431,7 @@ namespace OpenIddict.Abstractions
         /// <param name="type">The token type associated with the token.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> that can be used to abort the operation.</param>
         /// <returns>A <see cref="ValueTask"/> that can be used to monitor the asynchronous operation.</returns>
-        ValueTask SetTypeAsync(TToken token, string? type, CancellationToken cancellationToken);
+        ValueTask SetTypeAsync(TToken token, string type, CancellationToken cancellationToken);
 
         /// <summary>
         /// Updates an existing token.

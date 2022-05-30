@@ -115,7 +115,7 @@ namespace OpenIddict.Server
             /// <summary>
             /// Gets or sets the "client_id" claim returned to the caller, if applicable.
             /// </summary>
-            public string? ClientId { get; set; }
+            public string ClientId { get; set; } = default!;
 
             /// <summary>
             /// Gets or sets the "exp" claim

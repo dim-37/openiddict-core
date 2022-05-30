@@ -34,7 +34,6 @@ namespace OpenIddict.EntityFramework
             HasKey(authorization => authorization.Id);
 
             Property(authorization => authorization.ConcurrencyToken)
-                .HasMaxLength(50)
                 .IsConcurrencyToken();
 
             Property(authorization => authorization.Status)

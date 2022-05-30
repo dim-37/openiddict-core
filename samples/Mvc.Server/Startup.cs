@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Mvc.Server.Models;
 using Mvc.Server.Services;
 using Quartz;
+using System;
 using static OpenIddict.Abstractions.OpenIddictConstants;
 
 namespace Mvc.Server
@@ -29,7 +30,7 @@ namespace Mvc.Server
                 // Register the entity sets needed by OpenIddict.
                 // Note: use the generic overload if you need
                 // to replace the default OpenIddict entities.
-                options.UseOpenIddict();
+                options.UseOpenIddict<Guid>();
             });
 
             // Register the Identity services.
@@ -66,8 +67,7 @@ namespace Mvc.Server
                 {
                     // Configure OpenIddict to use the Entity Framework Core stores and models.
                     // Note: call ReplaceDefaultEntities() to replace the default OpenIddict entities.
-                    options.UseEntityFrameworkCore()
-                           .UseDbContext<ApplicationDbContext>();
+                    options.UseEntityFrameworkCore(options => options.ReplaceDefaultEntities<Guid>().UseDbContext<ApplicationDbContext>());
 
                     // Developers who prefer using MongoDB can remove the previous lines
                     // and configure OpenIddict to use the specified MongoDB database:

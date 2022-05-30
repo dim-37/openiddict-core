@@ -911,7 +911,7 @@ namespace OpenIddict.Server
                     // Infer the audiences/client_id from the claims stored in the security principal.
                     context.Audiences.UnionWith(context.Principal.GetAudiences());
                     context.ClientId = context.Principal.GetClaim(Claims.ClientId) ??
-                                       context.Principal.GetPresenters().FirstOrDefault();
+                                       context.Principal.GetPresenters().FirstOrDefault() ?? "";
 
                     // Note: only set "token_type" when the received token is an access token.
                     // See https://tools.ietf.org/html/rfc7662#section-2.2

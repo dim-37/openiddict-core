@@ -210,14 +210,14 @@ namespace OpenIddict.MongoDb
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetClientIdAsync(TApplication application, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetClientIdAsync(TApplication application, CancellationToken cancellationToken)
         {
             if (application is null)
             {
                 throw new ArgumentNullException(nameof(application));
             }
 
-            return new ValueTask<string?>(application.ClientId);
+            return new ValueTask<string>(application.ClientId);
         }
 
         /// <inheritdoc/>
@@ -232,14 +232,14 @@ namespace OpenIddict.MongoDb
         }
 
         /// <inheritdoc/>
-        public virtual ValueTask<string?> GetClientTypeAsync(TApplication application, CancellationToken cancellationToken)
+        public virtual ValueTask<string> GetClientTypeAsync(TApplication application, CancellationToken cancellationToken)
         {
             if (application is null)
             {
                 throw new ArgumentNullException(nameof(application));
             }
 
-            return new ValueTask<string?>(application.Type);
+            return new ValueTask<string>(application.Type);
         }
 
         /// <inheritdoc/>
@@ -448,7 +448,7 @@ namespace OpenIddict.MongoDb
 
         /// <inheritdoc/>
         public virtual ValueTask SetClientIdAsync(TApplication application,
-            string? identifier, CancellationToken cancellationToken)
+            string identifier, CancellationToken cancellationToken)
         {
             if (application is null)
             {
@@ -476,7 +476,7 @@ namespace OpenIddict.MongoDb
 
         /// <inheritdoc/>
         public virtual ValueTask SetClientTypeAsync(TApplication application,
-            string? type, CancellationToken cancellationToken)
+            string type, CancellationToken cancellationToken)
         {
             if (application is null)
             {
@@ -663,7 +663,7 @@ namespace OpenIddict.MongoDb
             // Generate a new concurrency token and attach it
             // to the application before persisting the changes.
             var timestamp = application.ConcurrencyToken;
-            application.ConcurrencyToken = Guid.NewGuid().ToString();
+            application.ConcurrencyToken = Guid.NewGuid();
 
             var database = await Context.GetDatabaseAsync(cancellationToken);
             var collection = database.GetCollection<TApplication>(Options.CurrentValue.ApplicationsCollectionName);

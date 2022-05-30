@@ -215,7 +215,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the status associated with the specified authorization.
         /// </returns>
-        ValueTask<string?> GetStatusAsync(TAuthorization authorization, CancellationToken cancellationToken);
+        ValueTask<string> GetStatusAsync(TAuthorization authorization, CancellationToken cancellationToken);
 
         /// <summary>
         /// Retrieves the subject associated with an authorization.
@@ -237,7 +237,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the type associated with the specified authorization.
         /// </returns>
-        ValueTask<string?> GetTypeAsync(TAuthorization authorization, CancellationToken cancellationToken);
+        ValueTask<string> GetTypeAsync(TAuthorization authorization, CancellationToken cancellationToken);
 
         /// <summary>
         /// Instantiates a new authorization.
@@ -329,7 +329,7 @@ namespace OpenIddict.Abstractions
         /// <param name="status">The status associated with the authorization.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> that can be used to abort the operation.</param>
         /// <returns>A <see cref="ValueTask"/> that can be used to monitor the asynchronous operation.</returns>
-        ValueTask SetStatusAsync(TAuthorization authorization, string? status, CancellationToken cancellationToken);
+        ValueTask SetStatusAsync(TAuthorization authorization, string status, CancellationToken cancellationToken);
 
         /// <summary>
         /// Sets the subject associated with an authorization.
@@ -347,7 +347,7 @@ namespace OpenIddict.Abstractions
         /// <param name="type">The type associated with the authorization.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> that can be used to abort the operation.</param>
         /// <returns>A <see cref="ValueTask"/> that can be used to monitor the asynchronous operation.</returns>
-        ValueTask SetTypeAsync(TAuthorization authorization, string? type, CancellationToken cancellationToken);
+        ValueTask SetTypeAsync(TAuthorization authorization, string type, CancellationToken cancellationToken);
 
         /// <summary>
         /// Updates an existing authorization.

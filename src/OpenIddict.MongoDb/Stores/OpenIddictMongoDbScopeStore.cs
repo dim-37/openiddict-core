@@ -515,7 +515,7 @@ namespace OpenIddict.MongoDb
             // Generate a new concurrency token and attach it
             // to the scope before persisting the changes.
             var timestamp = scope.ConcurrencyToken;
-            scope.ConcurrencyToken = Guid.NewGuid().ToString();
+            scope.ConcurrencyToken = Guid.NewGuid();
 
             var database = await Context.GetDatabaseAsync(cancellationToken);
             var collection = database.GetCollection<TScope>(Options.CurrentValue.ScopesCollectionName);

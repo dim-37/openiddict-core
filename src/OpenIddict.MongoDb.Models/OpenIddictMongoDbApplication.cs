@@ -24,7 +24,7 @@ namespace OpenIddict.MongoDb.Models
         /// Gets or sets the client identifier associated with the current application.
         /// </summary>
         [BsonElement("client_id"), BsonIgnoreIfNull]
-        public virtual string? ClientId { get; set; }
+        public virtual string ClientId { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the client secret associated with the current application.
@@ -38,7 +38,7 @@ namespace OpenIddict.MongoDb.Models
         /// Gets or sets the concurrency token.
         /// </summary>
         [BsonElement("concurrency_token"), BsonIgnoreIfNull]
-        public virtual string? ConcurrencyToken { get; set; } = Guid.NewGuid().ToString();
+        public virtual Guid ConcurrencyToken { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Gets or sets the consent type associated with the current application.
@@ -100,6 +100,6 @@ namespace OpenIddict.MongoDb.Models
         /// associated with the current application.
         /// </summary>
         [BsonElement("type"), BsonIgnoreIfNull]
-        public virtual string? Type { get; set; }
+        public virtual string Type { get; set; } = default!;
     }
 }

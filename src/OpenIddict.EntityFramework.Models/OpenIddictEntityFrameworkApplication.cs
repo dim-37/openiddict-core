@@ -39,7 +39,7 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the client identifier associated with the current application.
         /// </summary>
-        public virtual string? ClientId { get; set; }
+        public virtual string ClientId { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the client secret associated with the current application.
@@ -51,7 +51,7 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the concurrency token.
         /// </summary>
-        public virtual string? ConcurrencyToken { get; set; } = Guid.NewGuid().ToString();
+        public virtual Guid ConcurrencyToken { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Gets or sets the consent type associated with the current application.
@@ -73,7 +73,7 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the unique identifier associated with the current application.
         /// </summary>
-        public virtual TKey? Id { get; set; }
+        public virtual TKey Id { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the permissions associated with the
@@ -113,6 +113,6 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the application type associated with the current application.
         /// </summary>
-        public virtual string? Type { get; set; }
+        public virtual string Type { get; set; } = default!;
     }
 }

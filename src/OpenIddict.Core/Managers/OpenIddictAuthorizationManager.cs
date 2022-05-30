@@ -765,7 +765,7 @@ namespace OpenIddict.Core
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the status associated with the specified authorization.
         /// </returns>
-        public virtual ValueTask<string?> GetStatusAsync(
+        public virtual ValueTask<string> GetStatusAsync(
             TAuthorization authorization, CancellationToken cancellationToken = default)
         {
             if (authorization is null)
@@ -805,7 +805,7 @@ namespace OpenIddict.Core
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the type associated with the specified authorization.
         /// </returns>
-        public virtual ValueTask<string?> GetTypeAsync(
+        public virtual ValueTask<string> GetTypeAsync(
             TAuthorization authorization, CancellationToken cancellationToken = default)
         {
             if (authorization is null)
@@ -1269,7 +1269,7 @@ namespace OpenIddict.Core
             => GetScopesAsync((TAuthorization) authorization, cancellationToken);
 
         /// <inheritdoc/>
-        ValueTask<string?> IOpenIddictAuthorizationManager.GetStatusAsync(object authorization, CancellationToken cancellationToken)
+        ValueTask<string> IOpenIddictAuthorizationManager.GetStatusAsync(object authorization, CancellationToken cancellationToken)
             => GetStatusAsync((TAuthorization) authorization, cancellationToken);
 
         /// <inheritdoc/>
@@ -1277,7 +1277,7 @@ namespace OpenIddict.Core
             => GetSubjectAsync((TAuthorization) authorization, cancellationToken);
 
         /// <inheritdoc/>
-        ValueTask<string?> IOpenIddictAuthorizationManager.GetTypeAsync(object authorization, CancellationToken cancellationToken)
+        ValueTask<string> IOpenIddictAuthorizationManager.GetTypeAsync(object authorization, CancellationToken cancellationToken)
             => GetTypeAsync((TAuthorization) authorization, cancellationToken);
 
         /// <inheritdoc/>

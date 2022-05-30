@@ -30,7 +30,7 @@ namespace OpenIddict.EntityFrameworkCore.Models
         /// <summary>
         /// Gets or sets the concurrency token.
         /// </summary>
-        public virtual string? ConcurrencyToken { get; set; } = Guid.NewGuid().ToString();
+        public virtual Guid ConcurrencyToken { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Gets or sets the public description associated with the current scope.
@@ -58,7 +58,7 @@ namespace OpenIddict.EntityFrameworkCore.Models
         /// <summary>
         /// Gets or sets the unique identifier associated with the current scope.
         /// </summary>
-        public virtual TKey? Id { get; set; }
+        public virtual TKey Id { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the unique name associated with the current scope.

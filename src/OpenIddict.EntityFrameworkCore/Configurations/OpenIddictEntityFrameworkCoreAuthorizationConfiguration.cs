@@ -46,7 +46,6 @@ namespace OpenIddict.EntityFrameworkCore
                 nameof(OpenIddictEntityFrameworkCoreAuthorization.Type));
 
             builder.Property(authorization => authorization.ConcurrencyToken)
-                   .HasMaxLength(50)
                    .IsConcurrencyToken();
 
             builder.Property(authorization => authorization.Id)

@@ -24,7 +24,7 @@ namespace OpenIddict.MongoDb.Models
         /// Gets or sets the concurrency token.
         /// </summary>
         [BsonElement("concurrency_token"), BsonIgnoreIfNull]
-        public virtual string? ConcurrencyToken { get; set; } = Guid.NewGuid().ToString();
+        public virtual Guid ConcurrencyToken { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Gets or sets the public description associated with the current scope.

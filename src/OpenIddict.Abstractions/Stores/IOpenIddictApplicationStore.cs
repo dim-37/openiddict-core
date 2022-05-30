@@ -122,7 +122,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the client identifier associated with the application.
         /// </returns>
-        ValueTask<string?> GetClientIdAsync(TApplication application, CancellationToken cancellationToken);
+        ValueTask<string> GetClientIdAsync(TApplication application, CancellationToken cancellationToken);
 
         /// <summary>
         /// Retrieves the client secret associated with an application.
@@ -146,7 +146,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the client type of the application (by default, "public").
         /// </returns>
-        ValueTask<string?> GetClientTypeAsync(TApplication application, CancellationToken cancellationToken);
+        ValueTask<string> GetClientTypeAsync(TApplication application, CancellationToken cancellationToken);
 
         /// <summary>
         /// Retrieves the consent type associated with an application.
@@ -286,7 +286,7 @@ namespace OpenIddict.Abstractions
         /// <param name="identifier">The client identifier associated with the application.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> that can be used to abort the operation.</param>
         /// <returns>A <see cref="ValueTask"/> that can be used to monitor the asynchronous operation.</returns>
-        ValueTask SetClientIdAsync(TApplication application, string? identifier, CancellationToken cancellationToken);
+        ValueTask SetClientIdAsync(TApplication application, string identifier, CancellationToken cancellationToken);
 
         /// <summary>
         /// Sets the client secret associated with an application.
@@ -306,7 +306,7 @@ namespace OpenIddict.Abstractions
         /// <param name="type">The client type associated with the application.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> that can be used to abort the operation.</param>
         /// <returns>A <see cref="ValueTask"/> that can be used to monitor the asynchronous operation.</returns>
-        ValueTask SetClientTypeAsync(TApplication application, string? type, CancellationToken cancellationToken);
+        ValueTask SetClientTypeAsync(TApplication application, string type, CancellationToken cancellationToken);
 
         /// <summary>
         /// Sets the consent type associated with an application.

@@ -299,7 +299,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the status associated with the specified token.
         /// </returns>
-        ValueTask<string?> GetStatusAsync(object token, CancellationToken cancellationToken = default);
+        ValueTask<string> GetStatusAsync(object token, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves the subject associated with a token.
@@ -321,7 +321,7 @@ namespace OpenIddict.Abstractions
         /// A <see cref="ValueTask{TResult}"/> that can be used to monitor the asynchronous operation,
         /// whose result returns the token type associated with the specified token.
         /// </returns>
-        ValueTask<string?> GetTypeAsync(object token, CancellationToken cancellationToken = default);
+        ValueTask<string> GetTypeAsync(object token, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Determines whether a given token has the specified status.

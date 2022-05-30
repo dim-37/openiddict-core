@@ -42,7 +42,6 @@ namespace OpenIddict.EntityFrameworkCore
                    .IsUnique();
 
             builder.Property(scope => scope.ConcurrencyToken)
-                   .HasMaxLength(50)
                    .IsConcurrencyToken();
 
             builder.Property(scope => scope.Id)

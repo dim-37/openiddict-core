@@ -43,7 +43,7 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the concurrency token.
         /// </summary>
-        public virtual string? ConcurrencyToken { get; set; } = Guid.NewGuid().ToString();
+        public virtual Guid ConcurrencyToken { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Gets or sets the UTC creation date of the current token.
@@ -58,7 +58,7 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the unique identifier associated with the current token.
         /// </summary>
-        public virtual TKey? Id { get; set; }
+        public virtual TKey Id { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the payload of the current token, if applicable.
@@ -89,7 +89,7 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the status of the current token.
         /// </summary>
-        public virtual string? Status { get; set; }
+        public virtual string Status { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the subject associated with the current token.
@@ -99,6 +99,6 @@ namespace OpenIddict.EntityFramework.Models
         /// <summary>
         /// Gets or sets the type of the current token.
         /// </summary>
-        public virtual string? Type { get; set; }
+        public virtual string Type { get; set; } = default!;
     }
 }

@@ -52,7 +52,6 @@ namespace OpenIddict.EntityFrameworkCore
                 nameof(OpenIddictEntityFrameworkCoreToken.Type));
 
             builder.Property(token => token.ConcurrencyToken)
-                   .HasMaxLength(50)
                    .IsConcurrencyToken();
 
             builder.Property(token => token.Id)
